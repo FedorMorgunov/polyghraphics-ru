@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Стать партнёром — Полиграфика</title>
+  <meta name="description" content="Подключите типографию, станьте дизайнером или курьером Полиграфики: заказы со всей России без затрат на рекламу.">
+  <link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="partner">
+  <div data-include="header"></div>
+
+  <main>
+    <div class="container">
+      <section class="p-hero">
+        <div class="cutmarks"><i style="top:20px;left:20px"></i><i style="top:20px;right:20px"></i><i style="bottom:20px;left:20px"></i><i style="bottom:20px;right:20px"></i></div>
+        <div class="eyebrow">Для типографий, дизайнеров и курьеров</div>
+        <h1 class="h-display">Заказы приходят&nbsp;сами</h1>
+        <p class="lead">Подключитесь к Полиграфике — получайте заказы под свои мощности без затрат на рекламу. Мы берём на себя клиентов, проверку макетов, оплату и доставку.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn--cta btn--lg" href="#apply">Оставить заявку</a>
+          <a class="btn btn--lg" style="background:rgba(255,255,255,.16);color:#fff" href="#types">Условия</a>
+        </div>
+        <div class="p-hero__nums">
+          <div><b class="tnum">18 400</b><span>заказов в месяц</span></div>
+          <div><b class="tnum">+34%</b><span>загрузки оборудования в среднем</span></div>
+          <div><b class="tnum">3 дня</b><span>до первого заказа</span></div>
+          <div><b class="tnum">0 ₽</b><span>за подключение</span></div>
+        </div>
+      </section>
+    </div>
+
+    <section class="section" id="types">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Кем стать</div>
+            <h2 class="h1">Выберите формат партнёрства</h2>
+          </div>
+        </div>
+        <div class="p-types">
+          <article class="p-type">
+            <span class="ic"><i data-icon="printer"></i></span>
+            <h3 class="h3">Типография</h3>
+            <p>Публикуйте прайс — заказы будут приходить под свободные мощности.</p>
+            <ul>
+              <li>Комиссия только с выполненных заказов</li>
+              <li>Выплаты каждую неделю</li>
+              <li>Макеты уже проверены препресс-инженером</li>
+            </ul>
+          </article>
+          <article class="p-type">
+            <span class="ic"><i data-icon="design"></i></span>
+            <h3 class="h3">Дизайнер</h3>
+            <p>Берите заказы на макеты, логотипы и фирменный стиль.</p>
+            <ul>
+              <li>Понятное ТЗ и фиксированная цена</li>
+              <li>Рейтинг и отзывы растут вместе с вами</li>
+              <li>Безопасная сделка</li>
+            </ul>
+          </article>
+          <article class="p-type">
+            <span class="ic"><i data-icon="truck"></i></span>
+            <h3 class="h3">Курьер</h3>
+            <p>Доставляйте тиражи из типографий клиентам в своём городе.</p>
+            <ul>
+              <li>Гибкий график</li>
+              <li>Маршруты в приложении</li>
+              <li>Пеший, авто или грузовой транспорт</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--gray" id="apply">
+      <div class="container p-form">
+        <div>
+          <div class="eyebrow">Подключение</div>
+          <h2 class="h1">Три шага — и вы на платформе</h2>
+          <ul class="guarantees" style="background:#fff;margin-top:24px">
+            <li><span class="n pill">1</span><span><b>Заявка.</b> Расскажите о себе — это 2 минуты.</span></li>
+            <li><span class="n pill">2</span><span><b>Проверка.</b> Менеджер свяжется в течение дня и проверит оборудование и документы.</span></li>
+            <li><span class="n pill">3</span><span><b>Прайс и первые заказы.</b> Поможем заполнить цены — заказы придут в среднем через 3 дня.</span></li>
+          </ul>
+        </div>
+        <form id="partnerForm">
+          <label class="field full"><span>Кто вы</span>
+            <select class="select" required>
+              <option>Типография</option><option>Дизайнер или студия</option><option>Курьер</option>
+            </select>
+          </label>
+          <label class="field"><span>Название или имя</span><input class="input" type="text" required></label>
+          <label class="field"><span>Город</span><input class="input" type="text" data-city-input required></label>
+          <label class="field"><span>Телефон</span><input class="input" type="tel" autocomplete="tel" placeholder="+7" required></label>
+          <label class="field"><span>Почта</span><input class="input" type="email" autocomplete="email"></label>
+          <label class="field full"><span>Оборудование или портфолио</span><textarea class="input textarea" placeholder="Например: цифровая печать Xerox, широкоформат до 3,2 м, ламинатор"></textarea></label>
+          <div class="full"><button class="btn btn--primary btn--lg btn--block" type="submit">Отправить заявку</button></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="footer"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script>
+    function fillCity(c) {
+      var f = document.querySelector('[data-city-input]');
+      if (c && f && !f.dataset.touched) f.value = c.name;
+    }
+    fillCity(PG.ui.getCity());
+    document.addEventListener('pg:city', function (e) { fillCity(e.detail); });
+    document.querySelector('[data-city-input]').addEventListener('input', function () { this.dataset.touched = 1; });
+    document.getElementById('partnerForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      this.reset();
+      PG.ui.toast('Заявка отправлена — менеджер свяжется в течение дня');
+    });
+  </script>
+</body>
+</html>

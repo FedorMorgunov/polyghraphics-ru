@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Полиграфика">
+  <rect width="100" height="100" rx="24" fill="#007AFF"/>
+  <path d="M33 76V42a12 12 0 0 1 12-12h10a12 12 0 0 1 12 12v34" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="50" cy="62" r="7.5" fill="#FF9500"/>
+</svg>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Калькулятор печати — Полиграфика</title>
+  <meta name="description" content="Рассчитайте стоимость печати и сравните предложения типографий: цена, срок, рейтинг и честная разбивка стоимости.">
+  <link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="calc" class="has-mobile-bar">
+  <div data-include="header"></div>
+
+  <main class="container">
+    <nav class="crumbs" aria-label="Навигация"><a href="index.html">Главная</a><span>/</span><span>Калькулятор</span></nav>
+    <div class="calc-head">
+      <div>
+        <h1 class="h1" id="calcTitle">Калькулятор печати</h1>
+        <p>Настройте параметры — цены <span data-city-count>128 типографий</span> в г.&nbsp;<span data-city-name>Москва</span> пересчитаются мгновенно.</p>
+      </div>
+      <button class="btn btn--soft" type="button" id="shareBtn"><i data-icon="share"></i>Поделиться расчётом</button>
+    </div>
+
+    <div class="product-tabs" id="productTabs" role="tablist" aria-label="Вид продукции"></div>
+
+    <div class="calc" id="calc">
+      <div class="calc__main">
+        <section class="panel" aria-labelledby="p1">
+          <div class="panel__title"><span class="n">1</span><h2 id="p1">Параметры</h2><span class="caption" id="paramsHint"></span></div>
+          <div class="params" id="params"></div>
+        </section>
+
+        <section class="panel" aria-labelledby="p2" id="layoutPanel">
+          <div class="panel__title"><span class="n">2</span><h2 id="p2">Макет</h2><span class="caption">PDF, AI, CDR, PSD, JPG до 500 МБ</span></div>
+          <label class="upload" id="upload">
+            <input type="file" id="fileInput" accept=".pdf,.ai,.cdr,.psd,.tif,.tiff,.jpg,.jpeg,.png,.eps">
+            <span class="ic"><i data-icon="upload"></i></span>
+            <span><b id="uploadTitle">Перетащите файл или выберите на компьютере</b><small id="uploadSub">Препресс-инженер бесплатно проверит макет до печати</small></span>
+          </label>
+          <div class="or">или</div>
+          <label class="toggle">
+            <input type="checkbox" id="needDesign">
+            <span class="sw"></span>
+            <span class="t"><b>Нужен дизайн</b><small>Дизайнер сделает макет за 24 часа под выбранную типографию</small></span>
+            <span class="p">+990 ₽</span>
+          </label>
+        </section>
+
+        <section class="panel" aria-labelledby="p3" id="speedPanel">
+          <div class="panel__title"><span class="n">3</span><h2 id="p3">Срок и доставка</h2></div>
+          <div class="params">
+            <div class="param param--full"><div class="lbl">Срочность</div><div class="seg" id="speedSeg"></div></div>
+            <div class="param param--full"><div class="lbl">Получение <small>своя служба доставки</small></div><div class="seg" id="deliverySeg"></div></div>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="p4">
+          <div class="panel__title"><span class="n" id="p4n">4</span><h2 id="p4">Выберите исполнителя</h2></div>
+          <div class="offers-bar">
+            <div class="tabs" id="sortTabs" role="group" aria-label="Сортировка">
+              <button type="button" class="is-active" data-sort="score">Оптимально</button>
+              <button type="button" data-sort="price">Дешевле</button>
+              <button type="button" data-sort="days">Быстрее</button>
+              <button type="button" data-sort="rating">Рейтинг</button>
+            </div>
+            <span class="caption" id="offersCount"></span>
+          </div>
+          <div class="offers" id="offers" role="radiogroup" aria-label="Исполнители"></div>
+        </section>
+      </div>
+
+      <aside class="summary" aria-label="Итог заказа">
+        <div class="summary__card">
+          <div class="summary__prod">
+            <span class="ic" id="sumIcon"></span>
+            <span><b id="sumName"></b><small id="sumSpec"></small></span>
+          </div>
+          <div class="summary__who" id="sumWho"></div>
+          <ul class="breakdown" id="breakdown"></ul>
+          <div class="summary__total">
+            <span class="caption">Итого, с НДС</span>
+            <span><span class="price tnum" id="sumTotal"></span><small id="sumPer"></small></span>
+          </div>
+          <div class="summary__when"><i data-icon="truck"></i><span id="sumWhen"></span></div>
+          <div class="summary__actions">
+            <button class="btn btn--cta btn--lg btn--block" type="button" id="orderBtn">Оформить заказ</button>
+            <button class="btn btn--soft btn--block" type="button" id="saveBtn"><i data-icon="heart"></i>Сохранить расчёт</button>
+          </div>
+        </div>
+        <ul class="guarantees">
+          <li><i data-icon="receipt"></i><span><b>Честный расчёт.</b> Цена в чеке не изменится после оплаты</span></li>
+          <li><i data-icon="lock"></i><span><b>Безопасная сделка.</b> Типография получит деньги после приёмки заказа</span></li>
+          <li><i data-icon="refresh"></i><span><b>Гарантия.</b> Брак или срыв срока — перепечатаем бесплатно</span></li>
+        </ul>
+      </aside>
+    </div>
+
+    <!-- Индивидуальный расчёт для видов работ без калькулятора -->
+    <div class="calc" id="custom" hidden>
+      <div class="calc__main">
+        <section class="panel">
+          <div class="panel__title"><span class="n">1</span><h2>Опишите задачу</h2></div>
+          <p style="color:var(--text-2);margin-bottom:20px">Такие заказы считаются индивидуально. Отправим задачу подходящим исполнителям — предложения с ценой и сроком придут в течение 2 часов, а выберете вы сами.</p>
+          <form class="params" id="customForm">
+            <label class="field param--full"><span>Что нужно сделать</span><textarea class="input textarea" required placeholder="Например: 300 крафт-коробок 20×15×10 см с логотипом в 1 цвет"></textarea></label>
+            <label class="field"><span>Тираж</span><input class="input" type="text" placeholder="300 шт"></label>
+            <label class="field"><span>Когда нужно</span><input class="input" type="date"></label>
+            <label class="field"><span>Имя</span><input class="input" type="text" autocomplete="name" required></label>
+            <label class="field"><span>Телефон</span><input class="input" type="tel" autocomplete="tel" placeholder="+7" required></label>
+            <div class="param--full"><button class="btn btn--cta btn--lg" type="submit">Получить предложения</button></div>
+          </form>
+        </section>
+      </div>
+      <aside class="summary">
+        <ul class="guarantees">
+          <li><i data-icon="users"></i><span><b>5–10 предложений</b> от проверенных исполнителей</span></li>
+          <li><i data-icon="clock"></i><span><b>За 2 часа</b> в рабочее время</span></li>
+          <li><i data-icon="eye"></i><span><b>Вы сравниваете и выбираете</b> — никто не звонит без спроса</span></li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <div class="mobile-bar" id="mobileBar">
+    <span><span class="price tnum" id="mbTotal"></span><small id="mbWhen"></small></span>
+    <button class="btn btn--cta" type="button" id="mbOrder">Оформить</button>
+  </div>
+
+  <!-- Подтверждение заказа (демо) -->
+  <div class="modal" id="modal-order" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
+    <div class="modal__card">
+      <button class="icon-btn modal__close" type="button" data-close aria-label="Закрыть"><i data-icon="x"></i></button>
+      <div class="ic" style="width:56px;height:56px;border-radius:16px;background:#E3F8E8;color:#1E8E3E;display:grid;place-items:center;margin-bottom:16px"><i data-icon="checkCircle"></i></div>
+      <h2 id="orderTitle">Заказ почти оформлен</h2>
+      <p class="sub" id="orderText"></p>
+      <div class="note" style="margin-bottom:20px">Это макет: оплата и личный кабинет появятся на следующем этапе.</div>
+      <button class="btn btn--primary btn--block btn--lg" type="button" data-open="login">Войти и оплатить</button>
+    </div>
+  </div>
+
+  <div data-include="footer"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/calculator.js"></script>
+</body>
+</html>

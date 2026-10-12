@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Полиграфика — все типографии в одном окне</title>
+  <meta name="description" content="Сравните цены, сроки и рейтинги типографий и выберите свою. Визитки, листовки, баннеры, упаковка и дизайн макета — с доставкой в день готовности.">
+  <link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="home">
+  <div data-include="header"></div>
+
+  <main>
+    <!-- HERO: поиск + быстрый калькулятор -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
+          <span class="pill"><i data-icon="pin"></i><span data-city-name>Москва</span> · <span data-city-count>128 типографий</span></span>
+          <h1 class="h-display">Вы решаете, <span>кто&nbsp;и&nbsp;как</span> напечатает</h1>
+          <p class="lead">Сравните цены, сроки и рейтинги типографий — и выберите свою. Цена финальная, без скрытых доплат. Привезём в день готовности.</p>
+
+          <div class="search">
+            <form role="search" autocomplete="off">
+              <div class="search__box">
+                <i data-icon="search"></i>
+                <label class="sr-only" for="search">Что напечатать?</label>
+                <input id="search" type="search" data-search placeholder="Что напечатать? Например, «визитки» или «баннер 3×1»">
+                <button class="btn btn--primary" type="submit">Найти</button>
+              </div>
+            </form>
+            <div class="search__suggest" role="listbox"></div>
+          </div>
+          <div class="chips">
+            <a class="chip" href="calculator.html?type=cards">Визитки</a>
+            <a class="chip" href="calculator.html?type=flyers">Флаеры А5</a>
+            <a class="chip" href="calculator.html?type=banners">Баннер 3×1 м</a>
+            <a class="chip" href="calculator.html?type=stickers">Наклейки</a>
+            <a class="chip" href="calculator.html?type=design">Дизайн логотипа</a>
+          </div>
+
+          <div class="hero__stats">
+            <div><b class="tnum">320</b><span>типографий</span></div>
+            <div><b class="tnum">15</b><span>городов, дальше — вся Россия</span></div>
+            <div><b class="tnum">4,9 ★</b><span>средняя оценка заказов</span></div>
+          </div>
+
+          <ol class="steps" aria-label="Как это работает">
+            <li><b>1</b><span><strong>Опишите заказ</strong>или загрузите макет</span></li>
+            <li><b>2</b><span><strong>Сравните</strong>цены, сроки, отзывы</span></li>
+            <li><b>3</b><span><strong>Выберите</strong>и получите курьером</span></li>
+          </ol>
+        </div>
+
+        <!-- Быстрый калькулятор -->
+        <aside class="quick-calc" aria-labelledby="qcTitle">
+          <div class="cutmarks"><i style="top:12px;left:12px"></i><i style="top:12px;right:12px"></i><i style="bottom:12px;left:12px"></i><i style="bottom:12px;right:12px"></i></div>
+          <div class="quick-calc__head">
+            <h2 id="qcTitle"><i data-icon="calc"></i>Посчитаем за 10 секунд</h2>
+            <span class="pill">онлайн</span>
+          </div>
+          <div class="qc-panel">
+            <div class="qc-row">
+              <label class="field"><span>Что печатаем</span>
+                <select class="select" id="qcType">
+                  <option value="cards">Визитки</option>
+                  <option value="flyers">Листовки А5</option>
+                  <option value="banners">Баннер 3×1 м</option>
+                  <option value="stickers">Наклейки</option>
+                  <option value="booklets">Буклеты</option>
+                  <option value="posters">Плакаты А3</option>
+                </select>
+              </label>
+              <label class="field"><span>Тираж</span>
+                <select class="select" id="qcQty"></select>
+              </label>
+            </div>
+            <div class="tabs tabs--block" id="qcSides" role="group" aria-label="Печать">
+              <button type="button" class="is-active" data-v="0">Одна сторона</button>
+              <button type="button" data-v="1">Две стороны</button>
+            </div>
+            <div class="qc-result">
+              <div><span class="caption">Лучшая цена сейчас</span><span class="price tnum" id="qcPrice">—</span></div>
+              <span class="caption" id="qcPer" style="text-align:right"></span>
+            </div>
+            <div class="qc-offers" id="qcOffers"></div>
+            <a class="btn btn--cta btn--block btn--lg" id="qcGo" href="calculator.html" style="margin-top:16px">Выбрать исполнителя<i data-icon="arrow"></i></a>
+          </div>
+          <div class="quick-calc__foot"><i data-icon="shield"></i>Цена финальная: печать, материалы и проверка макета уже внутри</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Виды работ -->
+    <section class="section section--gray" id="cats">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Каталог</div>
+            <h2 class="h1">Что будем печатать?</h2>
+            <p>Выберите вид работ — сразу покажем цены и сроки типографий рядом с вами. Нет макета? Начните с дизайна.</p>
+          </div>
+          <a class="btn btn--soft" href="calculator.html">Открыть калькулятор<i data-icon="arrow"></i></a>
+        </div>
+        <div class="cats" id="catsGrid"></div>
+      </div>
+    </section>
+
+    <!-- Выбор исполнителя -->
+    <section class="section">
+      <div class="container compare">
+        <div>
+          <div class="eyebrow">Прозрачно</div>
+          <h2 class="h1">Вы видите всех. И выбираете сами</h2>
+          <ul>
+            <li><i data-icon="checkCircle"></i><span>Цены, сроки и рейтинги всех типографий — рядом, на одном экране</span></li>
+            <li><i data-icon="checkCircle"></i><span>Отзывы только от тех, кто реально заказал и получил</span></li>
+            <li><i data-icon="checkCircle"></i><span>Разбивка цены: печать, бумага, отделка, доставка — до рубля</span></li>
+            <li><i data-icon="checkCircle"></i><span>Не знаете, кого выбрать? Отметим оптимальное предложение</span></li>
+          </ul>
+          <a class="btn btn--primary btn--lg" href="calculator.html?type=cards">Сравнить предложения</a>
+        </div>
+        <div class="compare-table" id="compareTable" aria-label="Пример сравнения: визитки 1000 шт"></div>
+      </div>
+    </section>
+
+    <!-- Почему мы -->
+    <section class="section section--gray" id="why">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Почему мы?</div>
+            <h2 class="h1">Как опытный менеджер, который знает все типографии</h2>
+          </div>
+        </div>
+        <div class="why">
+          <article class="why__card why__card--big">
+            <div class="cutmarks"><i style="top:16px;right:16px"></i><i style="bottom:16px;right:16px"></i></div>
+            <div class="ic"><i data-icon="target"></i></div>
+            <h3>Подбор исполнителя под вас</h3>
+            <p>Учитываем тираж, бюджет, срок и требования к качеству — и показываем, кто справится лучше. Решение всегда за вами: можно выбрать любого.</p>
+          </article>
+          <article class="why__card">
+            <div class="ic"><i data-icon="truck"></i></div>
+            <h3>Доставка в день заказа</h3>
+            <p>Собственная служба доставки — курьеры забирают тираж прямо из типографии.</p>
+          </article>
+          <article class="why__card">
+            <div class="ic"><i data-icon="receipt"></i></div>
+            <h3>Честный расчёт</h3>
+            <p>Цена в калькуляторе = цена в чеке. Никаких «доплат за сложность» после оплаты.</p>
+          </article>
+          <article class="why__card">
+            <div class="ic"><i data-icon="file"></i></div>
+            <h3>Проверка макета бесплатно</h3>
+            <p>Препресс-инженер проверит вылеты, цвета и шрифты до печати.</p>
+          </article>
+          <article class="why__card">
+            <div class="ic"><i data-icon="refresh"></i></div>
+            <h3>Перепечатаем за свой счёт</h3>
+            <p>Брак или срыв срока — бесплатная перепечатка или возврат денег.</p>
+          </article>
+          <article class="why__card">
+            <div class="ic"><i data-icon="lock"></i></div>
+            <h3>Безопасная сделка</h3>
+            <p>Типография получает деньги только после того, как вы приняли заказ.</p>
+          </article>
+          <article class="why__card">
+            <div class="ic"><i data-icon="briefcase"></i></div>
+            <h3>Удобно для бизнеса</h3>
+            <p>Оплата по счёту, закрывающие документы и ЭДО — с любым исполнителем.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Баннер дизайна -->
+    <section class="section" style="padding-bottom:0">
+      <div class="container">
+        <div class="banner">
+          <div class="cutmarks"><i style="top:16px;left:16px"></i><i style="top:16px;right:16px"></i><i style="bottom:16px;left:16px"></i><i style="bottom:16px;right:16px"></i></div>
+          <div>
+            <span class="pill pill--orange">Нет макета?</span>
+            <h2 style="margin-top:16px">Дизайнеры сделают макет за 24 часа — от 990 ₽</h2>
+            <p>Визитка, листовка, логотип или фирменный стиль. Макет сразу готов к печати и проверен под выбранную типографию.</p>
+          </div>
+          <div class="row">
+            <a class="btn btn--primary btn--lg" href="calculator.html?type=design">Заказать дизайн</a>
+            <a class="btn btn--ghost btn--lg" href="partner.html#types">Я дизайнер</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container faq">
+        <div class="faq__aside">
+          <div class="eyebrow">FAQ</div>
+          <h2 class="h1">Коротко о главном</h2>
+          <p>Не нашли ответ? Напишите в чат — живой менеджер ответит в среднем за 3 минуты.</p>
+          <button class="btn btn--soft" type="button" onclick="PG.ui.toast('Чат с менеджером — в следующей версии макета')"><i data-icon="chat"></i>Написать в чат</button>
+        </div>
+        <div class="faq__list">
+          <details open>
+            <summary>Кто печатает мой заказ — вы или типография?</summary>
+            <p>Печатает выбранная вами типография-партнёр. Полиграфика проверяет макет, контролирует сроки и качество, доставляет заказ и отвечает за результат, если что-то пошло не так.</p>
+          </details>
+          <details>
+            <summary>Почему цена в калькуляторе финальная?</summary>
+            <p>Типографии заранее публикуют прайс на платформе, а мы считаем по нему всё: печать, материалы, отделку и доставку. Если после проверки макета нужна доработка, вы увидите её стоимость до оплаты и сможете отказаться.</p>
+          </details>
+          <details>
+            <summary>Как работает доставка в день заказа?</summary>
+            <p>У нас собственная курьерская служба. Курьер забирает тираж прямо из типографии, как только он готов, и привозит в удобный интервал. Срочные заказы, оформленные до 12:00, привозим в тот же день.</p>
+          </details>
+          <details>
+            <summary>Что делать, если у меня нет макета?</summary>
+            <p>Закажите дизайн на платформе — от 990 ₽ за визитку. Дизайнер подготовит макет сразу под требования выбранной типографии, поэтому он гарантированно пройдёт проверку.</p>
+          </details>
+          <details>
+            <summary>А если результат не понравится?</summary>
+            <p>Если есть брак или сорван срок — перепечатаем бесплатно или вернём деньги. Типография получает оплату только после того, как вы приняли заказ.</p>
+          </details>
+          <details>
+            <summary>Работаете с юрлицами?</summary>
+            <p>Да: оплата по счёту, договор, закрывающие документы и ЭДО с любым исполнителем на платформе. Для постоянных клиентов — персональный менеджер и отсрочка платежа.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="footer"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>
